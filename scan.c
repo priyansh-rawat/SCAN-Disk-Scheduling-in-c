@@ -3,7 +3,6 @@
 #include<unistd.h>
 #include<string.h>
 
-
 int cmpfunc (const void * a, const void * b)
 {
    return ( *(int*)a - *(int*)b );
@@ -97,6 +96,7 @@ int main()
 
 	if(current<prev)
 	{
+		write(1,"The requests are served in the order:\n",sizeof("The requests are served in the order:\n"));
 		printf("%d",current);
 		sort(q1,j,1);
 		printf(" -> 0");
@@ -105,10 +105,11 @@ int main()
 			total= current;
 		else	
 			total=current+q2[k-1];
-        	printf("/nTotal distance moved by disk arm is %d",total);						
+        	printf("\nTotal distance moved by disk arm is %d\n",total);						
 	}
 	else
 	{
+		write(1,"The requests are served in the order:\n",sizeof("The requests are served in the order:\n"));
 		printf("%d",current);
 		sort(q2,k,0);
 		printf("-> %d",max);
@@ -117,7 +118,7 @@ int main()
 			total=max-current;
 		else	
 			total=max-current+max-q1[0];
-		printf("\nTotal distance moved by disk arm is %d",total);
+		printf("\nTotal distance moved by disk arm is %d\n",total);
 	}
 	
 	
